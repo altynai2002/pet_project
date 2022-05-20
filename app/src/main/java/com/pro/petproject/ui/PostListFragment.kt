@@ -9,12 +9,11 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.pro.petproject.databinding.FragmentPostlistBinding
-import com.pro.petproject.ui.main.MainViewModel
 import com.pro.petproject.ui.main.rv.ItemAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class PostListFragment: BaseFragment<MainViewModel>(MainViewModel::class.java) , ItemAdapter.Listener {
+class PostListFragment: BaseFragment<BaseViewModel>(BaseViewModel::class.java) , ItemAdapter.Listener {
     private lateinit var listener : Navigate
     private var _binding: FragmentPostlistBinding? = null
     private val binding get() = _binding!!
@@ -78,8 +77,8 @@ class PostListFragment: BaseFragment<MainViewModel>(MainViewModel::class.java) ,
     }
 
     override fun onDestroyView() {
-//        super.onDestroyView()
-//        _binding = null
+        super.onDestroyView()
+        _binding = null
 //        viewModel.clearEvents()
     }
 

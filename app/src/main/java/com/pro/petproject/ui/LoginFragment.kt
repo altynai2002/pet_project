@@ -10,8 +10,8 @@ import dagger.hilt.android.AndroidEntryPoint
 
 
 @AndroidEntryPoint
-class LoginFragment : BaseFragment<RegistrationViewModel>
-    (RegistrationViewModel::class.java)   {
+class LoginFragment : BaseFragment<LoginViewModel>
+    (LoginViewModel::class.java)   {
     private var _binding: FragmentLoginBinding? = null
     private val binding get() = _binding!!
     private lateinit var listener : Navigate

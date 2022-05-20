@@ -1,6 +1,6 @@
 package com.pro.petproject.ui
 
-import android.app.Application
+
 import com.pro.petproject.domain.use_cases.GetUserUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject

@@ -4,12 +4,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.pro.petproject.ui.Navigate
 import com.pro.petproject.R
 import com.pro.petproject.databinding.ActivityMainBinding
-import com.pro.petproject.ui.LoginFragment
-import com.pro.petproject.ui.ProfileFragment
-import com.pro.petproject.ui.RegistrationFragment
+import com.pro.petproject.ui.*
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -40,7 +37,7 @@ class MainActivity: AppCompatActivity(), Navigate {
                     openFragment(RegistrationFragment(), false)
                 }
                 R.id.settings -> {
-                    openFragment(LoginFragment(), false)
+                    openFragment(PostListFragment(), false)
                 }
             }
             true
