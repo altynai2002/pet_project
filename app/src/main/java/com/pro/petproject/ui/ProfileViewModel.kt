@@ -2,6 +2,7 @@ package com.pro.petproject.ui
 
 
 import com.pro.petproject.domain.use_cases.GetUserUseCase
+import com.pro.petproject.ui.base.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
@@ -20,7 +21,7 @@ class ProfileViewModel @Inject constructor
         compositeDisposable.add(
             getUserUseCase(id)
                 .subscribe({
-                    _event.value = Event.FetchedEpisode(it)
+                    _event.value = Event.FetchedUser(it)
                 },{
 //                    _event.value = BaseEvent.ShowToast(it.message ?: "")
                 })

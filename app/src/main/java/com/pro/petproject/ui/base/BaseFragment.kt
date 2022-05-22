@@ -1,10 +1,8 @@
-package com.pro.petproject.ui
+package com.pro.petproject.ui.base
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.pro.petproject.R
 
 open class BaseFragment<viewModel: BaseViewModel>(
     private val vmClass: Class<viewModel>,

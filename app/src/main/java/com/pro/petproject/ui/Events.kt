@@ -10,5 +10,5 @@ sealed class Event() {
     class ShowToast(@StringRes val resId: Int): Event()
     object ShowLoading: Event()
     object HideLoading: Event()
-    class FetchedEpisode(val user: UserEntity): Event()
+    class FetchedUser(val user: UserEntity): Event()
 }

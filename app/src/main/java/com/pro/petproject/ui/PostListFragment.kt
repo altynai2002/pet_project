@@ -9,11 +9,14 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.pro.petproject.databinding.FragmentPostlistBinding
+import com.pro.petproject.ui.base.BaseFragment
+import com.pro.petproject.ui.base.BaseViewModel
+import com.pro.petproject.ui.main.MainViewModel
 import com.pro.petproject.ui.main.rv.ItemAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class PostListFragment: BaseFragment<BaseViewModel>(BaseViewModel::class.java) , ItemAdapter.Listener {
+class PostListFragment: BaseFragment<MainViewModel>(MainViewModel::class.java) , ItemAdapter.Listener {
     private lateinit var listener : Navigate
     private var _binding: FragmentPostlistBinding? = null
     private val binding get() = _binding!!
@@ -51,20 +54,20 @@ class PostListFragment: BaseFragment<BaseViewModel>(BaseViewModel::class.java) ,
             recycler.layoutManager = layoutManager
             recycler.addItemDecoration(DividerItemDecoration(activity, RecyclerView.VERTICAL))
             swiperefresh.setOnRefreshListener {
-                val list = mutableListOf<String>()
-                for (i in 0..20) {
-                    list.add("ITEM -$i")
-                }
-                epAdapter.setData(list)
-//                viewModel.loadPosts()
+//                val list = mutableListOf<String>()
+//                for (i in 0..20) {
+//                    list.add("ITEM -$i")
+//                }
+//                epAdapter.setData(list)
+                viewModel.loadPosts()
             }
         }
     }
 
     private fun subscribeToLiveData(){
-//        viewModel.postLiveData.observe(viewLifecycleOwner) {
-//            epAdapter.setData(it)
-//        }
+        viewModel.posts.observe(viewLifecycleOwner) {
+            epAdapter.setData(it)
+        }
 
         viewModel.event.observe(viewLifecycleOwner) {
             when (it) {
@@ -79,7 +82,7 @@ class PostListFragment: BaseFragment<BaseViewModel>(BaseViewModel::class.java) ,
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
-//        viewModel.clearEvents()
+        viewModel.clearEvents()
     }
 
     //  переход на detail fragment

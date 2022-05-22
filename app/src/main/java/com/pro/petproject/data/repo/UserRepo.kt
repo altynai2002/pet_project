@@ -10,13 +10,20 @@ import javax.inject.Inject
 
 class UserRepo @Inject constructor(
     private var userDao: UserDao,
+    @com.pro.petproject.di.annotations.UserApi
     private var userApi: UserApi
 ) {
 
     fun getUserFromApi() = userApi.getUsers()
 
+    fun getUserById(ownerId : String) = userDao.getUserById(ownerId)
+
     fun getUserWithId(ownerId: String): Single<List<UserDto>> {
         return userApi.getUserById(ownerId)
+    }
+
+    fun clearTable() {
+        userDao.clearTable()
     }
 
     fun saveUsersToDb(users: List<UserEntity>) = userDao.insertUsers(users)

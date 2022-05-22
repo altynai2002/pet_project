@@ -1,6 +1,7 @@
 package com.pro.petproject.di.modules
 
 import com.pro.petproject.BuildConfig
+import com.pro.petproject.data.network.PostApi
 import com.pro.petproject.data.network.UserApi
 import dagger.Module
 import dagger.Provides
@@ -19,7 +20,12 @@ import javax.inject.Singleton
 class NetworkModule {
 
     @Provides
+    @com.pro.petproject.di.annotations.UserApi
     fun provideUserApi(retrofit: Retrofit): UserApi = retrofit.create(UserApi::class.java)
+
+    @Provides
+    @com.pro.petproject.di.annotations.PostApi
+    fun providePostApi(retrofit: Retrofit): PostApi = retrofit.create(PostApi::class.java)
 
     @Provides
     @Singleton

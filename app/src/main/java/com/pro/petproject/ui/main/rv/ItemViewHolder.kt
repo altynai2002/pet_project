@@ -3,16 +3,17 @@ package com.pro.petproject.ui.main.rv
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.pro.petproject.data.models.PostEntity
 import com.pro.petproject.databinding.ItemRecycleBinding
 
 class ItemViewHolder(private val binding: ItemRecycleBinding
 ) : RecyclerView.ViewHolder(binding.root) {
 
     //    bind создается здесь чтобы не вызывать по 1000раз
-//    fun bind(item: Post) {
-    fun bind(item: String) {
+    fun bind(item: PostEntity) {
+//    fun bind(item: String) {
         with(binding){
-//            itemTxt.text = item.title
+            itemTxt.text = item.title
         }
     }
 

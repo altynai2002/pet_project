@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.pro.petproject.databinding.FragmentLoginBinding
+import com.pro.petproject.ui.base.BaseFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 
@@ -30,13 +31,13 @@ class LoginFragment : BaseFragment<LoginViewModel>
     private fun subscribeToLiveData() {
         viewModel.event.observe(viewLifecycleOwner) {
             when (it) {
-                is Event.FetchedEpisode -> setDetail(it)
+                is Event.FetchedUser -> setDetail(it)
                 else -> {}
             }
         }
     }
 
-    private fun setDetail(it: Event.FetchedEpisode) {
+    private fun setDetail(it: Event.FetchedUser) {
         Log.d("Profile", it.toString())
 //        binding.gender.text = it.user.gender
 //        binding.email.text = "season: " + it.ep.season

@@ -5,10 +5,8 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
-import com.pro.petproject.R
 import com.pro.petproject.databinding.FragmentProfileBinding
+import com.pro.petproject.ui.base.BaseFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -31,13 +29,13 @@ class ProfileFragment: BaseFragment<ProfileViewModel>(ProfileViewModel::class.ja
     private fun subscribeToLiveData() {
         viewModel.event.observe(viewLifecycleOwner) {
             when (it) {
-                is Event.FetchedEpisode -> setDetail(it)
+                is Event.FetchedUser -> setDetail(it)
                 else -> {}
             }
         }
     }
 
-    private fun setDetail(it: Event.FetchedEpisode) {
+    private fun setDetail(it: Event.FetchedUser) {
         Log.d("Profile", it.toString())
         binding.gender.text = it.user.gender
 //        binding.season.text = "season: " + it.ep.season
