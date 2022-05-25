@@ -12,17 +12,17 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.pro.petproject.R
 import com.pro.petproject.databinding.FragmentPostlistBinding
 import com.pro.petproject.ui.base.BaseFragment
-import com.pro.petproject.ui.base.BaseViewModel
-import com.pro.petproject.ui.main.MainViewModel
-import com.pro.petproject.ui.main.rv.ItemAdapter
+import com.pro.petproject.ui.main.rv.CommentAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
+
 @AndroidEntryPoint
-class PostListFragment: BaseFragment<MainViewModel>(MainViewModel::class.java) , ItemAdapter.Listener {
+class CommentListFragment : BaseFragment<CommentListViewModel>(CommentListViewModel::class.java),
+    CommentAdapter.Listener {
     private lateinit var listener : Navigate
     private var _binding: FragmentPostlistBinding? = null
     private val binding get() = _binding!!
-    private val postAdapter: ItemAdapter = ItemAdapter(this)
+    private val commentAdapter: CommentAdapter = CommentAdapter(this)
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -51,29 +51,23 @@ class PostListFragment: BaseFragment<MainViewModel>(MainViewModel::class.java) ,
 
     private fun setupViews(){
         with(binding){
-            recycler.adapter = postAdapter
+            recycler.adapter = commentAdapter
             val layoutManager = LinearLayoutManager(activity)
             recycler.layoutManager = layoutManager
             recycler.addItemDecoration(DividerItemDecoration(activity, RecyclerView.VERTICAL))
             swiperefresh.setOnRefreshListener {
-//                val list = mutableListOf<String>()
-//                for (i in 0..20) {
-//                    list.add("ITEM -$i")
-//                }
-//                epAdapter.setData(list)
-                viewModel.loadPosts()
+                viewModel.loadComments()
             }
         }
     }
 
     private fun subscribeToLiveData(){
-        viewModel.posts.observe(viewLifecycleOwner) {
-            postAdapter.setData(it)
+        viewModel.comments.observe(viewLifecycleOwner) {
+            commentAdapter.setData(it)
         }
 
         viewModel.event.observe(viewLifecycleOwner) {
             when (it) {
-//                is Event.ShowToast -> showToast(getString(it.resId))
                 is Event.ShowLoading -> binding.swiperefresh.isRefreshing = true
                 is Event.HideLoading -> binding.swiperefresh.isRefreshing = false
                 else -> {}

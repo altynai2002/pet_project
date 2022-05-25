@@ -19,7 +19,7 @@ class MainViewModel @Inject constructor(
 
 
     val posts: LiveData<List<PostEntity>> = getPostAsLiveDataUseCase()
-//    var postList: LiveData<List<PostEntity>> = getPostsByNicknameUseCase(nickname)
+//    var postList: LiveData<List<PostEntity>> = getPostsByIdUseCase(id)
 
     init {
         loadPosts()

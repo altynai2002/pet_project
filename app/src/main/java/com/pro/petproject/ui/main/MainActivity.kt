@@ -2,11 +2,14 @@ package com.pro.petproject.ui.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.pro.petproject.R
 import com.pro.petproject.databinding.ActivityMainBinding
 import com.pro.petproject.ui.*
+import com.pro.petproject.ui.profile.ProfileFragment
+import com.pro.petproject.ui.registration.RegistrationFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -18,11 +21,11 @@ class MainActivity: AppCompatActivity(), Navigate {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
-//        vm = ViewModelProvider(this)[vmClass]
         setContentView(binding.root)
 
         if(savedInstanceState == null){
-            openFragment(ProfileFragment(), false)
+//            binding.bottomNav.visibility = View.GONE
+            openFragment(FirstFragment(), false)
         }
 
         supportActionBar?.hide()
@@ -31,13 +34,13 @@ class MainActivity: AppCompatActivity(), Navigate {
         bottomNavView.setOnItemSelectedListener {
             when (it.itemId) {
                 R.id.home -> {
-                    openFragment(ProfileFragment(), false)
+                    openFragment(PostListFragment(), false)
                 }
                 R.id.message -> {
-                    openFragment(RegistrationFragment(), false)
+                    openFragment(AddPostFragment(), false)
                 }
                 R.id.settings -> {
-                    openFragment(PostListFragment(), false)
+                    openFragment(ProfileFragment(), false)
                 }
             }
             true

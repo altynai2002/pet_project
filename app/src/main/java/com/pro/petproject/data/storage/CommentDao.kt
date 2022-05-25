@@ -5,20 +5,19 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.pro.petproject.data.models.PostEntity
-import io.reactivex.Completable
+import com.pro.petproject.data.models.CommentEntity
 
 @Dao
-interface PostDao {
+interface CommentDao {
 //    @Insert(onConflict = OnConflictStrategy.REPLACE)
 //    fun insertPosts(post: List<PostEntity>): Completable
 
-    @Query("SELECT * FROM PostEntity")
-    fun getAll(): LiveData<List<PostEntity>>
+    @Query("SELECT * FROM CommentEntity")
+    fun getAll(): LiveData<List<CommentEntity>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertList(posts: List<PostEntity>)
+    fun insertList(comments: List<CommentEntity>)
 
-    @Query("DELETE FROM PostEntity")
+    @Query("DELETE FROM CommentEntity")
     fun clearTable()
 }

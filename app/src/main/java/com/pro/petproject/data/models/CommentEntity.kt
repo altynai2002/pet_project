@@ -1,6 +1,11 @@
 package com.pro.petproject.data.models
 
-class CommentDto(
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
+@Entity
+data class CommentEntity(
+    @PrimaryKey
     var objectId: String,
     var postId: String,
     var userId: String,

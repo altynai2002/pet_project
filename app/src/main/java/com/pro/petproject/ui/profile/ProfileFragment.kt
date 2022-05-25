@@ -1,24 +1,25 @@
-package com.pro.petproject.ui
+package com.pro.petproject.ui.profile
 
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.pro.petproject.databinding.FragmentRegistrationBinding
+import com.pro.petproject.databinding.FragmentProfileBinding
+import com.pro.petproject.ui.Event
+import com.pro.petproject.ui.Navigate
 import com.pro.petproject.ui.base.BaseFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class RegistrationFragment: BaseFragment<RegistrationViewModel>
-    (RegistrationViewModel::class.java)   {
-    private var _binding: FragmentRegistrationBinding? = null
+class ProfileFragment: BaseFragment<ProfileViewModel>(ProfileViewModel::class.java)  {
+    private var _binding: FragmentProfileBinding? = null
     private val binding get() = _binding!!
     private lateinit var listener : Navigate
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
-        _binding = FragmentRegistrationBinding.inflate(inflater)
+        _binding = FragmentProfileBinding.inflate(inflater)
         return binding.root
     }
 
@@ -38,10 +39,7 @@ class RegistrationFragment: BaseFragment<RegistrationViewModel>
 
     private fun setDetail(it: Event.FetchedUser) {
         Log.d("Profile", it.toString())
-//        binding.gender.text = it.user.gender
-//        binding.email.text = "season: " + it.ep.season
-//        binding.password.text = "air date: " + it.ep.air_date
-//        binding.name.text = "episode: " + it.ep.episode
+        binding.gender.text = it.user.gender
     }
 
     //    то же самое что мы делали в mainactivity

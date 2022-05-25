@@ -1,4 +1,9 @@
 <resources>
-    <string name="app_name">petProject</string>
+    <string name="app_name">WM</string>
     <string name="no_internet">No internet</string>
+
+    <string-array name="gender">
+        <item>Male</item>
+        <item>Female</item>
+    </string-array>
 </resources>

@@ -16,8 +16,8 @@ interface UserDao {
     @Query("SELECT * FROM UserEntity")
     fun getAll(): LiveData<List<UserEntity>>
 
-    @Query("SELECT * FROM UserEntity WHERE ownerId = :ownerId")
-    fun getUserById(ownerId : String): LiveData<UserEntity>
+    @Query("SELECT * FROM UserEntity WHERE objectId = :objectId")
+    fun getUserById(objectId : String): LiveData<UserEntity>
 
     @Query("DELETE FROM UserEntity")
     fun clearTable()

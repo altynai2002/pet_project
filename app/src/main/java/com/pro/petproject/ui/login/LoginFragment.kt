@@ -1,29 +1,45 @@
-package com.pro.petproject.ui
+package com.pro.petproject.ui.login
 
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.pro.petproject.databinding.FragmentProfileBinding
+import com.pro.petproject.databinding.FragmentLoginBinding
+import com.pro.petproject.ui.Event
+import com.pro.petproject.ui.Navigate
+import com.pro.petproject.ui.PostListFragment
 import com.pro.petproject.ui.base.BaseFragment
 import dagger.hilt.android.AndroidEntryPoint
 
+
 @AndroidEntryPoint
-class ProfileFragment: BaseFragment<ProfileViewModel>(ProfileViewModel::class.java)  {
-    private var _binding: FragmentProfileBinding? = null
+class LoginFragment : BaseFragment<LoginViewModel>
+    (LoginViewModel::class.java)   {
+    private var _binding: FragmentLoginBinding? = null
     private val binding get() = _binding!!
     private lateinit var listener : Navigate
 
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        try {
+            listener = context as Navigate
+        } catch (e: Exception){ print("Activity must implement FragmentListener")}
+    }
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
-        _binding = FragmentProfileBinding.inflate(inflater)
+        _binding = FragmentLoginBinding.inflate(inflater)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         subscribeToLiveData()
+        binding.btnLogin.setOnClickListener {
+            listener.openFragment(PostListFragment())
+        }
     }
 
     private fun subscribeToLiveData() {
@@ -37,11 +53,10 @@ class ProfileFragment: BaseFragment<ProfileViewModel>(ProfileViewModel::class.ja
 
     private fun setDetail(it: Event.FetchedUser) {
         Log.d("Profile", it.toString())
-        binding.gender.text = it.user.gender
-//        binding.season.text = "season: " + it.ep.season
-//        binding.airDate.text = "air date: " + it.ep.air_date
-//        binding.episode.text = "episode: " + it.ep.episode
-//        binding.series.text = "series: ${it.ep.series}"
+//        binding.gender.text = it.user.gender
+//        binding.email.text = "season: " + it.ep.season
+//        binding.password.text = "air date: " + it.ep.air_date
+//        binding.name.text = "episode: " + it.ep.episode
     }
 
     //    то же самое что мы делали в mainactivity

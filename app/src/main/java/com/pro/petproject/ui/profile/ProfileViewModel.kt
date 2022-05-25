@@ -1,7 +1,8 @@
-package com.pro.petproject.ui
+package com.pro.petproject.ui.profile
 
 
 import com.pro.petproject.domain.use_cases.GetUserUseCase
+import com.pro.petproject.ui.Event
 import com.pro.petproject.ui.base.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject

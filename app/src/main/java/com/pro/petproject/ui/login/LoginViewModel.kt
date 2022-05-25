@@ -1,4 +1,4 @@
-package com.pro.petproject.ui
+package com.pro.petproject.ui.login
 
 import com.pro.petproject.domain.use_cases.GetUserUseCase
 import com.pro.petproject.ui.base.BaseViewModel
@@ -6,7 +6,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class RegistrationViewModel@Inject constructor(
+class LoginViewModel @Inject constructor(
     private val getUserUseCase: GetUserUseCase
 ): BaseViewModel() {
 
@@ -26,3 +26,4 @@ class RegistrationViewModel@Inject constructor(
 //        )
 //    }
 }
+

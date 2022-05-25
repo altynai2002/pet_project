@@ -14,10 +14,6 @@ class GetPostUseCase @Inject constructor(
     operator fun invoke(): Observable<Unit> {
         return postRepo.getPostsFromApi()
             .subscribeOn(Schedulers.io())
-//            .map {
-////                Thread.sleep(1000)
-//                it
-//            }
             .map {
                 val listPost = mutableListOf<PostEntity>()
                 it.forEach {

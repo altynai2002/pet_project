@@ -56,6 +56,9 @@ open class BaseViewModel @Inject constructor(): ViewModel() {
     }
 
     //    исп-ся в гл.фрагменте
+//    fun getFragmentByIndex(index: Int): Fragment? {
+//        return postLiveData.value?.get(index)
+//    }
 //    fun getPostByIndex(index: Int): Post? {
 //        return postLiveData.value?.get(index)
 //    }

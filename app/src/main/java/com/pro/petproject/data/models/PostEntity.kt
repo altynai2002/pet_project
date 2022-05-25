@@ -7,6 +7,7 @@ import androidx.room.PrimaryKey
 data class PostEntity(
     @PrimaryKey
     var objectId: String,
+    var userId: String,
     var ownerId: String,
     var content: String,
     var title: String,

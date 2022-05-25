@@ -20,6 +20,9 @@ class StorageModule {
     @Provides
     fun providePostDao(appDatabase: AppDatabase) = appDatabase.postDao()
 
+    @Provides
+    fun provideCommentDao(appDatabase: AppDatabase) = appDatabase.commentDao()
+
 
     @Provides
     @Singleton
@@ -32,14 +35,4 @@ class StorageModule {
             .fallbackToDestructiveMigration()
             .build()
 
-//    @Provides
-//    @Singleton
-//    fun provideAppDatabasePost(context: Application) =
-//        Room.databaseBuilder(
-//            context,
-//            AppDatabase::class.java,
-//            AppDatabase.DB_NAME
-//        )
-//            .fallbackToDestructiveMigration()
-//            .build()
 }
