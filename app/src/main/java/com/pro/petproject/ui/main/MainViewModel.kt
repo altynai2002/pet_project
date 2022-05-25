@@ -32,7 +32,9 @@ class MainViewModel @Inject constructor(
                 .doOnTerminate {
                     _event.value = Event.HideLoading
                 }
-                .subscribe({},{
+                .subscribe({
+
+                },{
                     handleError(it)
                 })
         )

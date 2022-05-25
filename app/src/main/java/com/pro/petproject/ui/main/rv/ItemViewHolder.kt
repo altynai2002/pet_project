@@ -12,7 +12,6 @@ class ItemViewHolder(private val binding: ItemRecycleBinding
 
     //    bind создается здесь чтобы не вызывать по 1000раз
     fun bind(item: PostEntity) {
-//    fun bind(item: String) {
         with(binding){
             itemTitle.text = item.title
             itemText.text = item.content
