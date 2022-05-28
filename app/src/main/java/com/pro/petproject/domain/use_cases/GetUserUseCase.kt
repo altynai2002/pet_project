@@ -4,7 +4,6 @@ import android.util.Log
 import com.pro.petproject.data.models.UserDto
 import com.pro.petproject.data.models.UserEntity
 import com.pro.petproject.data.repo.UserRepo
-import com.pro.petproject.domain.models.User
 import com.pro.petproject.extensions.toUserEntity
 import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers

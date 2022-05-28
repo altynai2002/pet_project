@@ -1,4 +1,4 @@
-package com.pro.petproject.ui
+package com.pro.petproject.ui.comment
 
 import android.content.Context
 import android.os.Bundle
@@ -11,6 +11,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.pro.petproject.R
 import com.pro.petproject.databinding.FragmentPostlistBinding
+import com.pro.petproject.ui.Event
+import com.pro.petproject.ui.Navigate
 import com.pro.petproject.ui.base.BaseFragment
 import com.pro.petproject.ui.main.rv.CommentAdapter
 import dagger.hilt.android.AndroidEntryPoint
@@ -56,6 +58,7 @@ class CommentListFragment : BaseFragment<CommentListViewModel>(CommentListViewMo
             recycler.layoutManager = layoutManager
             recycler.addItemDecoration(DividerItemDecoration(activity, RecyclerView.VERTICAL))
             swiperefresh.setOnRefreshListener {
+                viewModel.setId(arguments?.getString(String::class.java.canonicalName))
                 viewModel.loadComments()
             }
         }
@@ -79,6 +82,14 @@ class CommentListFragment : BaseFragment<CommentListViewModel>(CommentListViewMo
         super.onDestroyView()
         _binding = null
         viewModel.clearEvents()
+    }
+
+    //    то же самое что мы делали в mainactivity
+    companion object{
+        fun newInstance(id: String): CommentListFragment {
+            val args = Bundle().apply { putString(Long::class.java.canonicalName, id) }
+            return CommentListFragment().apply { arguments = args }
+        }
     }
 
     //  переход на detail fragment

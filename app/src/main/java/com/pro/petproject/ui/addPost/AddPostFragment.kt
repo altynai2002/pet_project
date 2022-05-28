@@ -1,4 +1,4 @@
-package com.pro.petproject.ui
+package com.pro.petproject.ui.addPost
 
 import android.content.Context
 import android.os.Bundle
@@ -6,16 +6,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.pro.petproject.databinding.FragmentAddpostBinding
-import com.pro.petproject.databinding.FragmentFirstBinding
 import com.pro.petproject.ui.Navigate
+import com.pro.petproject.ui.PostListFragment
 import com.pro.petproject.ui.base.BaseFragment
-import com.pro.petproject.ui.login.LoginFragment
 import com.pro.petproject.ui.main.MainViewModel
-import com.pro.petproject.ui.registration.RegistrationFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class AddPostFragment: BaseFragment<MainViewModel>(MainViewModel::class.java) {
+class AddPostFragment: BaseFragment<AddPostViewModel>(AddPostViewModel::class.java) {
     private lateinit var listener : Navigate
     private var _binding: FragmentAddpostBinding? = null
     private val binding get() = _binding!!
@@ -41,6 +39,14 @@ class AddPostFragment: BaseFragment<MainViewModel>(MainViewModel::class.java) {
         binding.apply {
             postBtn.setOnClickListener {
                 listener.openFragment(PostListFragment())
+            }
+        }
+    }
+
+    private fun setupViews() {
+        with(binding) {
+            postBtn.setOnClickListener {
+                viewModel.addPost(editTitle.text.toString(), editContent.text.toString())
             }
         }
     }

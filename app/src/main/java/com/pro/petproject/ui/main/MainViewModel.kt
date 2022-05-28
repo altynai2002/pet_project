@@ -1,6 +1,7 @@
 package com.pro.petproject.ui.main
 
 import androidx.lifecycle.LiveData
+import com.pro.petproject.data.models.CommentEntity
 import com.pro.petproject.data.models.PostEntity
 import com.pro.petproject.domain.use_cases.GetPostAsLiveDataUseCase
 import com.pro.petproject.domain.use_cases.GetPostUseCase
@@ -39,4 +40,17 @@ class MainViewModel @Inject constructor(
                 })
         )
     }
+
+
+    fun getPostByIndex(index: String): String? {
+        return posts.value?.getOrElse(index)
+    }
+
 }
+
+private fun Any?.getOrElse(index: String): String {
+    return index
+}
+
+
+

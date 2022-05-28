@@ -4,7 +4,6 @@ import com.pro.petproject.data.models.UserDto
 import com.pro.petproject.data.models.UserEntity
 import com.pro.petproject.data.network.UserApi
 import com.pro.petproject.data.storage.UserDao
-import com.pro.petproject.domain.models.User
 import io.reactivex.Single
 import javax.inject.Inject
 

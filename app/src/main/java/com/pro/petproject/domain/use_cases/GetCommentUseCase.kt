@@ -11,8 +11,8 @@ import javax.inject.Inject
 class GetCommentUseCase@Inject constructor(
     private val commentRepo: CommentRepo
 ) {
-    operator fun invoke(): Observable<Unit> {
-        return commentRepo.getCommentsFromApi()
+    operator fun invoke(postId: String): Observable<Unit> {
+        return commentRepo.getCommentsFromApi(postId)
             .subscribeOn(Schedulers.io())
             .map {
                 val listComment = mutableListOf<CommentEntity>()

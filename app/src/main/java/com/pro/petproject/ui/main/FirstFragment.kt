@@ -57,11 +57,4 @@ class FirstFragment: BaseFragment<MainViewModel>(MainViewModel::class.java) {
         _binding = null
         viewModel.clearEvents()
     }
-
-
-//    override fun onClick(index: Int) {
-//        viewModel.getPostByIndex(index)?.let {
-//            listener.openFragment(PostFragment.newInstance(it.id!!))
-//        }
-//    }
 }

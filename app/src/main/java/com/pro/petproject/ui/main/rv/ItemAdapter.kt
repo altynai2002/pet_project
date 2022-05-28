@@ -6,10 +6,8 @@ import com.pro.petproject.data.models.PostEntity
 
 class ItemAdapter(private val listener: Listener) : RecyclerView.Adapter<ItemViewHolder>() {
     private var list = arrayListOf<PostEntity>()
-//    private var list = arrayListOf<String>()
 
     fun setData(list: List<PostEntity>) {
-//    fun setData(list: List<String>) {
         this.list.clear()
         this.list.addAll(list)
         notifyDataSetChanged()
@@ -30,6 +28,6 @@ class ItemAdapter(private val listener: Listener) : RecyclerView.Adapter<ItemVie
 
     //    перенесли viewholder в отдельный файл
     interface Listener{
-        fun onClick(index: Int)
+        fun onClick(id: String)
     }
 }

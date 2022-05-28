@@ -67,16 +67,6 @@ class RegistrationFragment: BaseFragment<RegistrationViewModel>
         }
     }
 
-//    private fun setSpinner() {
-//        ArrayAdapter.createFromResource(
-//            requireContext(),
-//            R.array.gender,
-//            android.R.layout.simple_spinner_item
-//        ).also { adapter ->
-//            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-//            binding.gender.adapter = adapter
-//        }
-//    }
 
     private fun subscribeToLiveData() {
         viewModel.event.observe(viewLifecycleOwner) {
@@ -90,6 +80,7 @@ class RegistrationFragment: BaseFragment<RegistrationViewModel>
     private fun setDetail(it: Event.FetchedUser) {
         Log.d("Profile", it.toString())
         binding.apply{
+//            viewModel.customFunction()
             genderInt = it.user.gender
 //            email.text = it.user.email
         }

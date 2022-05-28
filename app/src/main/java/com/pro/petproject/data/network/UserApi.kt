@@ -1,7 +1,6 @@
 package com.pro.petproject.data.network
 
 import com.pro.petproject.data.models.UserDto
-import com.pro.petproject.domain.models.User
 import io.reactivex.Observable
 import io.reactivex.Single
 import retrofit2.http.GET

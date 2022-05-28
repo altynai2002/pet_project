@@ -1,6 +1,17 @@
 <resources>
     <string name="app_name">WM</string>
     <string name="no_internet">No internet</string>
+    <string name="title">Title</string>
+    <string name="content">Content</string>
+    <string name="post">Post</string>
+    <string name="post_question">Post question</string>
+    <string name="sign_in">Зарегистрироваться</string>
+    <string name="name_profile">Имя: Алексей</string>
+    <string name="gender_profile">Пол: Мужчина</string>
+    <string name="first_regist">Регистрация</string>
+    <string name="do_you_have">У вас есть учетная запись? Нажмите на кнопку Войти.</string>
+    <string name="log_in">Войти</string>
+    <string name="name">Имя</string>
 
     <string-array name="gender">
         <item>Male</item>

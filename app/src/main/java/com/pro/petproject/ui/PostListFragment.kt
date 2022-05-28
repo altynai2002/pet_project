@@ -12,7 +12,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.pro.petproject.R
 import com.pro.petproject.databinding.FragmentPostlistBinding
 import com.pro.petproject.ui.base.BaseFragment
-import com.pro.petproject.ui.base.BaseViewModel
+import com.pro.petproject.ui.comment.CommentListFragment
 import com.pro.petproject.ui.main.MainViewModel
 import com.pro.petproject.ui.main.rv.ItemAdapter
 import dagger.hilt.android.AndroidEntryPoint
@@ -56,11 +56,6 @@ class PostListFragment: BaseFragment<MainViewModel>(MainViewModel::class.java) ,
             recycler.layoutManager = layoutManager
             recycler.addItemDecoration(DividerItemDecoration(activity, RecyclerView.VERTICAL))
             swiperefresh.setOnRefreshListener {
-//                val list = mutableListOf<String>()
-//                for (i in 0..20) {
-//                    list.add("ITEM -$i")
-//                }
-//                epAdapter.setData(list)
                 viewModel.loadPosts()
             }
         }
@@ -87,10 +82,11 @@ class PostListFragment: BaseFragment<MainViewModel>(MainViewModel::class.java) ,
         viewModel.clearEvents()
     }
 
-    //  переход на detail fragment
-    override fun onClick(index: Int) {
-//        viewModel.getPostByIndex(index)?.let {
-//            listener.openFragment(PostFragment.newInstance(it.id!!))
-//        }
+    //  переход на comment fragment
+    override fun onClick(index: String) {
+        viewModel.getPostByIndex(index)?.let {
+            listener.openFragment(CommentListFragment.newInstance(it))
+        }
     }
+
 }

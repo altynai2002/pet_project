@@ -16,7 +16,8 @@ class PostRepo @Inject constructor(
 
     fun getPostsFromApi() = postApi.getPosts()
 
-//    fun getUserById(ownerId : String) = postDao.getUserById(ownerId)
+    fun createPost(post: PostDto) = postApi.savePost(post)
+
 
     fun getPostWithId(ownerId: String): Single<List<PostDto>> {
         return postApi.getPostById(ownerId)

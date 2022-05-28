@@ -1,6 +1,9 @@
 package com.pro.petproject.di.modules
 
 import android.app.Application
+import android.content.Context
+import android.content.SharedPreferences
+import android.provider.SyncStateContract
 import androidx.room.Room
 import com.pro.petproject.data.storage.AppDatabase
 import dagger.Module
@@ -34,5 +37,11 @@ class StorageModule {
         )
             .fallbackToDestructiveMigration()
             .build()
+
+//    @Singleton
+//    @Provides
+//    fun provideSharedPreferences(context: Context): SharedPreferences {
+//        return context.getSharedPreferences("myPref", Context.MODE_PRIVATE)
+//    }
 
 }

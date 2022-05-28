@@ -25,7 +25,12 @@ class ProfileFragment: BaseFragment<ProfileViewModel>(ProfileViewModel::class.ja
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setUpData()
         subscribeToLiveData()
+    }
+
+    private fun setUpData() {
+        viewModel.getUser()
     }
 
     private fun subscribeToLiveData() {

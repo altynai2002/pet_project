@@ -13,13 +13,14 @@ class CommentRepo@Inject constructor(
     private var commentApi: CommentApi,
     private var commentDao: CommentDao
 ) {
-    fun getCommentsFromApi() = commentApi.getComments()
+    fun getCommentsFromApi(postId: String) = commentApi.getComments(postId)
 
 //    fun getUserById(ownerId : String) = postDao.getUserById(ownerId)
 
-    fun getCommentWithId(ownerId: String): Single<List<CommentDto>> {
-        return commentApi.getCommentById(ownerId)
-    }
+//    fun getCommentWithId(postId: String): Single<List<CommentDto>> {
+//        return commentApi.getCommentById(postId)
+//    }
+
 
     fun getCommentsFromDB() = commentDao.getAll()
 

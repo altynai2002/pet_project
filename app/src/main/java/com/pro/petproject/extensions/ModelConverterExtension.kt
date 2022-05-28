@@ -1,7 +1,6 @@
 package com.pro.petproject.extensions
 
 import com.pro.petproject.data.models.*
-import com.pro.petproject.domain.models.User
 
 
 fun UserDto.toUserEntity(): UserEntity {
@@ -16,7 +15,6 @@ fun UserDto.toUserEntity(): UserEntity {
 
 fun PostDto.toPostEntity(): PostEntity {
     return PostEntity(
-        ownerId = this.ownerId,
         userId = this.userId,
         title = this.title,
         content = this.content,

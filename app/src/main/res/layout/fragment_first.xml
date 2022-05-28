@@ -10,32 +10,41 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="100dp"
-        app:layout_constraintCircleRadius="8dp"
-        android:text="Регистрация"
+        android:background="@drawable/circular_button"
+        android:paddingLeft="40dp"
+        android:paddingRight="40dp"
+        android:textColor="@color/tabBgColor"
+        android:text="@string/first_regist"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintVertical_bias="0.462" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/askTxt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:layout_margin="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
         android:textColor="@color/white"
-        android:text="У вас есть учетная запись? Нажмите на кнопку Войти."
+        android:text="@string/do_you_have"
         app:layout_constraintTop_toBottomOf="@id/regBtn"/>
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/loginBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintCircleRadius="8dp"
-        android:text="Войти"
-        android:layout_marginTop="10dp"
-        app:layout_constraintStart_toStartOf="@id/regBtn"
+        android:layout_marginTop="36dp"
+        android:background="@drawable/circular_button"
+        android:paddingLeft="40dp"
+        android:paddingRight="41dp"
+        android:textColor="@color/tabBgColor"
+        android:text="@string/log_in"
         app:layout_constraintEnd_toEndOf="@id/regBtn"
-        app:layout_constraintTop_toBottomOf="@id/askTxt"/>
+        app:layout_constraintStart_toStartOf="@id/regBtn"
+        app:layout_constraintTop_toBottomOf="@id/askTxt" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
