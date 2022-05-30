@@ -2,10 +2,16 @@ package com.pro.petproject.ui.login
 
 import android.content.Context
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextUtils
+import android.text.TextWatcher
 import android.util.Log
+import android.util.Patterns
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import com.google.android.material.textfield.TextInputLayout
 import com.pro.petproject.databinding.FragmentLoginBinding
 import com.pro.petproject.ui.Event
 import com.pro.petproject.ui.Navigate
@@ -20,6 +26,9 @@ class LoginFragment : BaseFragment<LoginViewModel>
     private var _binding: FragmentLoginBinding? = null
     private val binding get() = _binding!!
     private lateinit var listener : Navigate
+
+    private lateinit var emailInputLayoutLogin: TextInputLayout
+    private lateinit var passwordInputLayoutLogin: TextInputLayout
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -36,28 +45,61 @@ class LoginFragment : BaseFragment<LoginViewModel>
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        subscribeToLiveData()
-        binding.btnLogin.setOnClickListener {
-            listener.openFragment(PostListFragment())
-        }
-    }
+        emailInputLayoutLogin = binding.editLayout
+        passwordInputLayoutLogin = binding.editLayout2
 
-    private fun subscribeToLiveData() {
-        viewModel.event.observe(viewLifecycleOwner) {
-            when (it) {
-                is Event.FetchedUser -> setDetail(it)
-                else -> {}
+        val emailLogin = binding.email
+        val passwordLogin = binding.password
+        binding.apply {
+            btnLogin.setOnClickListener {
+            if (isValidEmail(email.text.toString())) {
+                login(emailLogin.text.toString(), passwordLogin.text.toString())
+                listener.openFragment(PostListFragment())
+            } else if (!isValidEmail(email.text.toString())) {
+                Toast.makeText(activity, "Неккоректная почта", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(activity, "Почта или пароль не совпадают", Toast.LENGTH_SHORT).show()
             }
+                Log.e("TAG", "set email = $email, editTxt = $email")
+            }
+
+        }
+
+    }
+
+    private fun login(email: String, password: String) {
+        if(email.isNotEmpty() && password.isNotEmpty()) {
+            viewModel.login(email, password)
+
+        }
+        else if(email.isEmpty()) {
+            emailInputLayoutLogin.error = "Введите почту!"
+        }
+        else if (password.isEmpty()) {
+            passwordInputLayoutLogin.error = "Введите пароль!"
         }
     }
 
-    private fun setDetail(it: Event.FetchedUser) {
-        Log.d("Profile", it.toString())
-//        binding.gender.text = it.user.gender
-//        binding.email.text = "season: " + it.ep.season
-//        binding.password.text = "air date: " + it.ep.air_date
-//        binding.name.text = "episode: " + it.ep.episode
+    private fun isValidEmail(email: String): Boolean {
+        return !TextUtils.isEmpty(email) && Patterns.EMAIL_ADDRESS.matcher(email).matches()
     }
+
+//    private val loginTextWatcher = object : TextWatcher {
+//        override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
+//
+//        override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+//            val emailText = binding.email.text.toString().trim()
+//            val passwordText = binding.password.text.toString().trim()
+//            binding.btnLogin.isEnabled = emailText.isNotEmpty() && passwordText.isNotEmpty()
+//        }
+//
+//        override fun afterTextChanged(p0: Editable?) {
+////            val emailText = binding.email.text.toString().trim()
+////            val passwordText = binding.password.text.toString().trim()
+//            binding.btnLogin.isEnabled = true
+//        }
+//    }
+
 
     //    то же самое что мы делали в mainactivity
 //    companion object{

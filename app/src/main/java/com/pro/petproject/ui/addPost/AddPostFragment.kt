@@ -35,21 +35,14 @@ class AddPostFragment: BaseFragment<AddPostViewModel>(AddPostViewModel::class.ja
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentAddpostBinding.bind(view)
 
-        //  переход на login/registration fragment
         binding.apply {
             postBtn.setOnClickListener {
+                viewModel.addPost(editTitle.text.toString(), editContent.text.toString())
                 listener.openFragment(PostListFragment())
             }
         }
     }
 
-    private fun setupViews() {
-        with(binding) {
-            postBtn.setOnClickListener {
-                viewModel.addPost(editTitle.text.toString(), editContent.text.toString())
-            }
-        }
-    }
 
 
     override fun onDestroyView() {

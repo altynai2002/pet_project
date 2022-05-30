@@ -24,8 +24,12 @@ class ItemViewHolder(private val binding: ItemRecycleBinding
             val binding = ItemRecycleBinding.inflate(LayoutInflater.from(parent.context))
 
             return ItemViewHolder(binding).apply {
-                itemView.setOnClickListener {
+                binding.commentIcon.setOnClickListener {
                     listener.onClick(postId)
+                }
+
+                binding.commentAddIcon.setOnClickListener {
+                    listener.onClick2()
                 }
             }
         }

@@ -13,7 +13,6 @@ class CommentViewHolder(private val binding: CommentRecycleBinding
     fun bind(item: CommentEntity) {
         with(binding){
             commentText.text = item.text
-            commentTitle.text = item.text
         }
     }
 

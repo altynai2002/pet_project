@@ -25,24 +25,6 @@ open class BaseViewModel @Inject constructor(): ViewModel() {
     val event: LiveData<Event?>
         get() = _event
 
-
-//    init {
-//        loadPosts()
-//    }
-
-//    fun loadPosts() {
-//        _event.value = Event.ShowLoading
-//        compositeDisposable.add(
-//            getPostUseCase()
-//                .doOnTerminate{
-//                    _event.value = Event.HideLoading
-//                }
-//                .subscribe({},{
-////                    handleError(it)
-//                })
-//        )
-//    }
-
     override fun onCleared() {
         super.onCleared()
         compositeDisposable.clear()
@@ -55,13 +37,6 @@ open class BaseViewModel @Inject constructor(): ViewModel() {
         }
     }
 
-    //    исп-ся в гл.фрагменте
-//    fun getFragmentByIndex(index: Int): Fragment? {
-//        return postLiveData.value?.get(index)
-//    }
-//    fun getPostByIndex(index: Int): Post? {
-//        return postLiveData.value?.get(index)
-//    }
 
     fun clearEvents() {
         _event.value = null

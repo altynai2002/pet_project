@@ -1,5 +1,6 @@
 package com.pro.petproject.di.modules
 
+import com.google.firebase.auth.FirebaseAuth
 import com.pro.petproject.BuildConfig
 import com.pro.petproject.data.network.CommentApi
 import com.pro.petproject.data.network.PostApi
@@ -39,6 +40,9 @@ class NetworkModule {
     @Provides
     @Singleton
     fun provideRetrofit(okhttpClient: OkHttpClient): Retrofit = createRetrofit(okhttpClient)
+
+    @Provides
+    fun provideFirebaseAuth() : FirebaseAuth = FirebaseAuth.getInstance()
 
     private fun createOkHttpClientBuilder(): OkHttpClient.Builder {
         val interceptor = HttpLoggingInterceptor()

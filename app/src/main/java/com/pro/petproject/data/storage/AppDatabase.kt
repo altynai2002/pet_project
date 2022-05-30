@@ -8,7 +8,7 @@ import com.pro.petproject.data.models.PostEntity
 import com.pro.petproject.data.models.UserEntity
 
 @TypeConverters(TypeListConverter::class)
-@Database(entities = [UserEntity::class, PostEntity::class, CommentEntity::class], version = 5)
+@Database(entities = [UserEntity::class, PostEntity::class, CommentEntity::class], version = 6)
 abstract class AppDatabase: RoomDatabase()  {
 
     abstract fun userDao(): UserDao

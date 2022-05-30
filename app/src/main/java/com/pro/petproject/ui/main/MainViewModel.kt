@@ -20,13 +20,12 @@ class MainViewModel @Inject constructor(
 
 
     val posts: LiveData<List<PostEntity>> = getPostAsLiveDataUseCase()
-//    var postList: LiveData<List<PostEntity>> = getPostsByIdUseCase(id)
 
     init {
         loadPosts()
     }
 
-        fun loadPosts() {
+    fun loadPosts() {
         _event.value = Event.ShowLoading
         compositeDisposable.add(
             getPostUseCase()

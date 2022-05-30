@@ -7,23 +7,32 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
 
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/logo"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@mipmap/ic_launcher"
+        android:layout_marginTop="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/radioGroup"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <RadioGroup
         android:id="@+id/radioGroup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/tabBgColor"
         android:padding="15dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.148"
-        tools:layout_editor_absoluteX="0dp">
+        app:layout_constraintTop_toBottomOf="@id/logo">
 
         <TextView
             android:id="@+id/title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Ваш пол"
             android:shadowColor="@color/white"
+            android:text="@string/gender"
             android:textColor="@color/white"
             android:textSize="18sp"
             android:textStyle="bold" />
@@ -32,14 +41,14 @@
             android:id="@+id/male"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Мужчина"
+            android:text="@string/male"
             android:textColor="@color/white" />
 
         <RadioButton
             android:id="@+id/female"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Женщина"
+            android:text="@string/female"
             android:textColor="@color/white" />
     </RadioGroup>
 
@@ -50,13 +59,12 @@
         android:layout_height="wrap_content"
         app:helperText="*обязательно"
         app:helperTextTextColor="#E91E63"
-        android:layout_marginTop="16dp"
         app:errorEnabled="true"
         android:textColorHint="@color/white"
         app:errorIconDrawable="@drawable/ic_baseline_error_24"
         app:errorIconTint="@color/purple_500"
         app:startIconTint="@color/white"
-        app:startIconDrawable="@drawable/ic_email"
+        app:startIconDrawable="@drawable/ic_baseline_person_24"
         app:layout_constraintTop_toBottomOf="@id/radioGroup">
 
 
@@ -65,7 +73,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/name"
-            android:lines="1"
+            android:maxLines="1"
+            android:inputType="textPersonName"
+            android:imeOptions="actionNext"
             android:textColor="@color/white"
             android:textColorHint="@color/black"
             app:layout_constraintTop_toBottomOf="@id/radioGroup"
@@ -97,7 +107,7 @@
             android:id="@+id/email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Email"
+            android:hint="@string/email"
             android:lines="1"
             android:textColor="@color/white"
             android:textColorHint="@color/black"
@@ -128,7 +138,7 @@
             android:id="@+id/password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Пароль"
+            android:hint="@string/password"
             android:lines="1"
             android:imeOptions="actionDone"
             android:textColor="@color/white"
@@ -143,10 +153,10 @@
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         app:backgroundTint="#2A44C6"
-        android:text="Войти"
+        android:text="@string/register"
         android:background="@drawable/circular_button"
         android:textColor="@color/white"
-        android:textSize="24sp"
+        android:textSize="20sp"
         app:layout_constraintTop_toBottomOf="@id/edit_layout3" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

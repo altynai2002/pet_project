@@ -7,6 +7,15 @@
     android:background="@color/tabBgColor"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/logo"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@mipmap/ic_launcher"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/txtLogin"/>
+
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/txtLogin"
         android:layout_width="match_parent"
@@ -14,7 +23,7 @@
         android:layout_margin="16dp"
         android:layout_marginTop="220dp"
         android:gravity="center"
-        android:text="Авторизация"
+        android:text="@string/auth"
         android:textColor="@color/white"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -43,7 +52,7 @@
             android:id="@+id/email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Email"
+            android:hint="@string/email_login"
             android:lines="1"
             android:textColor="@color/white"
             android:textColorHint="@color/black"
@@ -74,7 +83,7 @@
             android:id="@+id/password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Пароль"
+            android:hint="@string/password"
             android:lines="1"
             android:imeOptions="actionDone"
             android:textColor="@color/white"
@@ -89,7 +98,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         app:backgroundTint="#2A44C6"
-        android:text="Войти"
+        android:text="@string/login"
         android:background="@drawable/circular_button"
         android:textColor="@color/white"
         android:textSize="24sp"

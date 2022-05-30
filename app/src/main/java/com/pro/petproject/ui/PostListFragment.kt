@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.pro.petproject.R
 import com.pro.petproject.databinding.FragmentPostlistBinding
+import com.pro.petproject.ui.addComment.AddCommentFragment
 import com.pro.petproject.ui.base.BaseFragment
 import com.pro.petproject.ui.comment.CommentListFragment
 import com.pro.petproject.ui.main.MainViewModel
@@ -83,10 +84,14 @@ class PostListFragment: BaseFragment<MainViewModel>(MainViewModel::class.java) ,
     }
 
     //  переход на comment fragment
-    override fun onClick(index: String) {
-        viewModel.getPostByIndex(index)?.let {
-            listener.openFragment(CommentListFragment.newInstance(it))
+    override fun onClick(id: String) {
+        viewModel.getPostByIndex(id)?.let {
+            listener.openFragment(CommentListFragment.newInstance(it), true)
         }
+    }
+
+    override fun onClick2() {
+        listener.openFragment(AddCommentFragment(), true)
     }
 
 }

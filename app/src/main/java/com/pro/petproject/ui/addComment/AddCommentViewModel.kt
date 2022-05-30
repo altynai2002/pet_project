@@ -1,31 +1,29 @@
-package com.pro.petproject.ui.addPost
+package com.pro.petproject.ui.addComment
 
-import com.pro.petproject.data.models.PostDto
-import com.pro.petproject.di.annotations.PostApi
-import com.pro.petproject.domain.use_cases.AddPostUseCase
+import com.pro.petproject.data.models.CommentDto
+import com.pro.petproject.domain.use_cases.AddCommentUseCase
 import com.pro.petproject.ui.Event
 import com.pro.petproject.ui.base.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import io.reactivex.android.schedulers.AndroidSchedulers
 import javax.inject.Inject
 
-
 @HiltViewModel
-class AddPostViewModel @Inject constructor(
-    private val addPostUseCase: AddPostUseCase,
-//    private val postApi: PostApi
+class AddCommentViewModel @Inject constructor(
+    private val addCommentUseCase: AddCommentUseCase,
 ): BaseViewModel() {
 
-    private var userId: String = "103D6211-A32D-4D3E-B124-4AFEEF439D6F"
+    private var userId: String = "A8DE28AF-9002-415D-99CB-A5BF2A29D111"
 
-    fun addPost(title: String?, content: String) {
-        if (title.isNullOrEmpty()) {
+    fun addComment(text: String?) {
+        if (text.isNullOrEmpty()) {
             _event.value = Event.OnEmptyFields
             return
         }
         var randomId = (0..1000).shuffled().last()
         compositeDisposable.add(
-            addPostUseCase(PostDto(userId=userId, content = content, title = title,
+            addCommentUseCase(CommentDto(
+                userId=userId, text = text, postId = "A8DE28AF-9002-415D-99CB-A5BF2A29D111",
                 objectId = randomId.toString()) )
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({

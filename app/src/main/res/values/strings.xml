@@ -1,10 +1,10 @@
 <resources>
     <string name="app_name">WM</string>
     <string name="no_internet">No internet</string>
-    <string name="title">Title</string>
-    <string name="content">Content</string>
-    <string name="post">Post</string>
-    <string name="post_question">Post question</string>
+    <string name="title">Заголовок</string>
+    <string name="content">Вопрос</string>
+    <string name="post">Отправить</string>
+    <string name="post_question">Задать вопрос</string>
     <string name="sign_in">Зарегистрироваться</string>
     <string name="name_profile">Имя: Алексей</string>
     <string name="gender_profile">Пол: Мужчина</string>
@@ -12,6 +12,23 @@
     <string name="do_you_have">У вас есть учетная запись? Нажмите на кнопку Войти.</string>
     <string name="log_in">Войти</string>
     <string name="name">Имя</string>
+    <string name="register">Зарегистрироваться</string>
+    <string name="password">Пароль</string>
+    <string name="email">Email</string>
+    <string name="gender">Ваш пол</string>
+    <string name="male">Мужчина</string>
+    <string name="female">Женщина</string>
+    <string name="auth">Авторизация</string>
+    <string name="email_login">Email</string>
+    <string name="login">Войти</string>
+    <string name="timeout"> Превышено время ожидания</string>
+    <string name="unknown_exception">Непридвиденная ошибка</string>
+    <string name="authentication_failed">Авторизация провалена</string>
+    <string name="settings">Настройки</string>
+    <string name="logout">Выйти</string>
+    <string name="add_comment_txt">Добавить комментарий</string>
+    <string name="add_txt">Добавить</string>
+    <string name="comment">Комментарий</string>
 
     <string-array name="gender">
         <item>Male</item>

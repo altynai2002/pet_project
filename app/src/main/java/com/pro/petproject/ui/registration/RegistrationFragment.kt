@@ -10,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.textfield.TextInputLayout
 import com.pro.petproject.R
 import com.pro.petproject.databinding.FragmentRegistrationBinding
 import com.pro.petproject.ui.Event
@@ -25,6 +26,10 @@ class RegistrationFragment: BaseFragment<RegistrationViewModel>
     private val binding get() = _binding!!
     private lateinit var listener : Navigate
     var genderInt: String = ""
+    private lateinit var emailTxt: String
+    private lateinit var passwordTxt: String
+    private lateinit var emailInputLayout: TextInputLayout
+    private lateinit var passwordInputLayout: TextInputLayout
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -45,8 +50,11 @@ class RegistrationFragment: BaseFragment<RegistrationViewModel>
         val view = requireActivity().findViewById<BottomNavigationView>(R.id.bottomNav)
         view.visibility = View.GONE
 
-        subscribeToLiveData()
-//        setSpinner()
+//        subscribeToLiveData()
+
+
+        emailInputLayout = binding.editLayout2
+        passwordInputLayout = binding.editLayout3
 
         binding.radioGroup.setOnCheckedChangeListener{ group, checkedId ->
             genderInt = when(checkedId) {
@@ -57,43 +65,24 @@ class RegistrationFragment: BaseFragment<RegistrationViewModel>
         }
 
         binding.apply{
+
+
+            val name = binding.name.text
+
             registrationBtn.setOnClickListener {
                 if (!isValidEmail(email.text.toString())) {
                     Toast.makeText(activity, "Неккоректная почта", Toast.LENGTH_SHORT).show()
                 } else {
+                    emailTxt = email.text.toString()
+                    passwordTxt = password.text.toString()
                     listener.openFragment(PostListFragment())
+                    viewModel.registerNewUser(emailTxt, passwordTxt)
+                    Log.e("TAG", "set email = $emailTxt, editTxt = $email password = $password")
                 }
             }
         }
     }
 
-
-    private fun subscribeToLiveData() {
-        viewModel.event.observe(viewLifecycleOwner) {
-            when (it) {
-                is Event.FetchedUser -> setDetail(it)
-                else -> {}
-            }
-        }
-    }
-
-    private fun setDetail(it: Event.FetchedUser) {
-        Log.d("Profile", it.toString())
-        binding.apply{
-//            viewModel.customFunction()
-            genderInt = it.user.gender
-//            email.text = it.user.email
-        }
-
-    }
-
-    //    то же самое что мы делали в mainactivity
-//    companion object{
-//        fun newInstance(id: Long): EpisodeFragment {
-//            val args = Bundle().apply { putLong(Long::class.java.canonicalName, id) }
-//            return EpisodeFragment().apply { arguments = args }
-//        }
-//    }
 
     private fun isValidEmail(email: String): Boolean {
         return !TextUtils.isEmpty(email) && Patterns.EMAIL_ADDRESS.matcher(email).matches()

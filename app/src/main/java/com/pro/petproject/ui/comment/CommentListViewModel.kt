@@ -16,23 +16,15 @@ class CommentListViewModel @Inject constructor(
 
 
     val comments: LiveData<List<CommentEntity>> = getCommentAsLiveDataUseCase()
-//    var postList: LiveData<List<PostEntity>> = getPostsByIdUseCase(id)
 
     init {
         loadComments()
     }
 
-    private  var id: String = ""
-    fun setId(id: String?){
-        this.id = id ?: ""
-    }
-
-    private var postId: String = "82541599-09ED-4CF9-B53E-6E75F6DF6A20"
-
         fun loadComments() {
         _event.value = Event.ShowLoading
         compositeDisposable.add(
-            getCommentUseCase(postId)
+            getCommentUseCase()
                 .doOnTerminate {
                     _event.value = Event.HideLoading
                 }

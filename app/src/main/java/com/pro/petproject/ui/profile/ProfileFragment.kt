@@ -1,14 +1,17 @@
 package com.pro.petproject.ui.profile
 
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.pro.petproject.R
 import com.pro.petproject.databinding.FragmentProfileBinding
 import com.pro.petproject.ui.Event
 import com.pro.petproject.ui.Navigate
 import com.pro.petproject.ui.base.BaseFragment
+import com.pro.petproject.ui.main.FirstFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -16,6 +19,16 @@ class ProfileFragment: BaseFragment<ProfileViewModel>(ProfileViewModel::class.ja
     private var _binding: FragmentProfileBinding? = null
     private val binding get() = _binding!!
     private lateinit var listener : Navigate
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        try {
+            listener = context as Navigate
+        } catch (e: Exception) {
+            print("Activity must implement FragmentListener")
+        }
+    }
+
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
@@ -27,6 +40,12 @@ class ProfileFragment: BaseFragment<ProfileViewModel>(ProfileViewModel::class.ja
         super.onViewCreated(view, savedInstanceState)
         setUpData()
         subscribeToLiveData()
+        binding.btnSettings.setOnClickListener {
+            Event.ShowToast(R.string.settings)
+        }
+        binding.btnLogOut.setOnClickListener {
+            listener.openFragment(FirstFragment(), false)
+        }
     }
 
     private fun setUpData() {
@@ -46,14 +65,6 @@ class ProfileFragment: BaseFragment<ProfileViewModel>(ProfileViewModel::class.ja
         Log.d("Profile", it.toString())
         binding.gender.text = it.user.gender
     }
-
-    //    то же самое что мы делали в mainactivity
-//    companion object{
-//        fun newInstance(id: Long): EpisodeFragment {
-//            val args = Bundle().apply { putLong(Long::class.java.canonicalName, id) }
-//            return EpisodeFragment().apply { arguments = args }
-//        }
-//    }
 
     override fun onDestroyView() {
         super.onDestroyView()

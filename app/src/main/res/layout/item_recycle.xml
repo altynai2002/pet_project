@@ -37,26 +37,49 @@
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/itemText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/white"
-                android:padding="10dp"
-                android:textSize="14dp"
-                android:layout_marginBottom="12dp"
-                android:layout_marginLeft="12dp"
-                android:layout_marginRight="12dp"
-                android:lines="2"
+                android:layout_width="305dp"
+                android:layout_height="66dp"
                 android:layout_below="@id/itemTitle"
-                android:text="Text"/>
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_marginStart="17dp"
+                android:layout_marginLeft="17dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="12dp"
+                android:layout_marginBottom="12dp"
+                android:layout_toStartOf="@id/commentAddIcon"
+                android:lines="2"
+                android:padding="10dp"
+                android:text="Text"
+                android:textColor="@color/white"
+                android:textSize="14dp" />
 
             <ImageView
                 android:id="@+id/commentIcon"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="35dp"
+                android:layout_height="34dp"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
-                android:layout_margin="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginRight="22dp"
+                android:layout_marginBottom="10dp"
                 android:src="@drawable/ic_comment" />
+
+            <ImageView
+                android:id="@+id/commentAddIcon"
+                android:layout_width="34dp"
+                android:layout_height="38dp"
+                android:layout_below="@id/commentIcon"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="67dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginBottom="10dp"
+                android:src="@drawable/ic_baseline_add_comment_24" />
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

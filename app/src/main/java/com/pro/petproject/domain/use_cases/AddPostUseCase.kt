@@ -13,6 +13,5 @@ class AddPostUseCase @Inject constructor(
     operator fun invoke(post: PostDto): Observable<Unit> {
         return postRepo.createPost(post)
             .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
     }
 }

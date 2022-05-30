@@ -29,5 +29,7 @@ class ItemAdapter(private val listener: Listener) : RecyclerView.Adapter<ItemVie
     //    перенесли viewholder в отдельный файл
     interface Listener{
         fun onClick(id: String)
+
+        fun onClick2()
     }
 }

@@ -8,11 +8,11 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
 
-class GetCommentUseCase@Inject constructor(
+class GetCommentUseCase @Inject constructor(
     private val commentRepo: CommentRepo
 ) {
-    operator fun invoke(postId: String): Observable<Unit> {
-        return commentRepo.getCommentsFromApi(postId)
+    operator fun invoke(): Observable<Unit> {
+        return commentRepo.getCommentsFromApi()
             .subscribeOn(Schedulers.io())
             .map {
                 val listComment = mutableListOf<CommentEntity>()

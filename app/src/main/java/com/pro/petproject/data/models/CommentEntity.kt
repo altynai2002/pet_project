@@ -7,7 +7,7 @@ import androidx.room.PrimaryKey
 data class CommentEntity(
     @PrimaryKey
     var objectId: String,
-    var postId: String?,
+    var postId: String,
     var userId: String,
     var text: String,
 )
