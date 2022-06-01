@@ -9,8 +9,6 @@ import com.pro.petproject.data.models.CommentEntity
 
 @Dao
 interface CommentDao {
-//    @Insert(onConflict = OnConflictStrategy.REPLACE)
-//    fun insertPosts(post: List<PostEntity>): Completable
 
     @Query("SELECT * FROM CommentEntity")
     fun getAll(): LiveData<List<CommentEntity>>

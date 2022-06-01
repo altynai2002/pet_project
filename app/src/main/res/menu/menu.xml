@@ -4,13 +4,13 @@
             android:id="@+id/home"
             android:icon="@drawable/ic_home"
             android:iconTint="@color/white"
-            android:title="Home"  />
+            android:title="@string/main"  />
         <item
             android:id="@+id/message"
             android:icon="@drawable/ic_add_box"
-            android:title="Add" />
+            android:title="@string/add" />
         <item
             android:id="@+id/settings"
             android:icon="@drawable/ic_account_box"
-            android:title="Profile" />
+            android:title="@string/profile" />
 </menu>

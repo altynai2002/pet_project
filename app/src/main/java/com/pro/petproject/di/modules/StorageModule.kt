@@ -37,11 +37,4 @@ class StorageModule {
         )
             .fallbackToDestructiveMigration()
             .build()
-
-//    @Singleton
-//    @Provides
-//    fun provideSharedPreferences(context: Context): SharedPreferences {
-//        return context.getSharedPreferences("myPref", Context.MODE_PRIVATE)
-//    }
-
 }

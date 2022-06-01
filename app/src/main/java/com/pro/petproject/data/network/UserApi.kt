@@ -14,5 +14,4 @@ interface UserApi {
     @GET("data/WmUsers/{objectId}")
     fun getUserById(@Path("objectId") ownerId: String): Single<List<UserDto>>
 
-//    @POST("/data/Users")
 }

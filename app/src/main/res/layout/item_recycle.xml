@@ -8,13 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
-        app:cardBackgroundColor="@color/tabBgColor"
-        app:cardCornerRadius="8dp"
-        app:cardElevation="8dp"
-        app:cardMaxElevation="10dp"
-        app:cardPreventCornerOverlap="true"
-        app:cardUseCompatPadding="true"
-        android:layout_margin="5dp">
+        style="@style/CardViewStyle">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -24,14 +18,12 @@
                 android:id="@+id/itemTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="15dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginBottom="15dp"
+                style="@style/CardElementMargin"
                 android:layout_toStartOf="@+id/commentIcon"
-                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
                 android:gravity="start"
                 android:padding="15dp"
-                android:text="Title"
+                android:text="@string/title"
                 android:textColor="@color/white"
                 android:textSize="18sp" />
 
@@ -40,31 +32,21 @@
                 android:layout_width="305dp"
                 android:layout_height="66dp"
                 android:layout_below="@id/itemTitle"
+                style="@style/CardElementMargin"
                 android:layout_alignParentStart="true"
-                android:layout_alignParentLeft="true"
-                android:layout_marginStart="17dp"
-                android:layout_marginLeft="17dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="12dp"
-                android:layout_marginBottom="12dp"
                 android:layout_toStartOf="@id/commentAddIcon"
-                android:lines="2"
+                android:lines="3"
                 android:padding="10dp"
-                android:text="Text"
+                android:text="@string/text"
                 android:textColor="@color/white"
-                android:textSize="14dp" />
+                android:textSize="14sp" />
 
             <ImageView
                 android:id="@+id/commentIcon"
                 android:layout_width="35dp"
                 android:layout_height="34dp"
                 android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="15dp"
-                android:layout_marginRight="22dp"
-                android:layout_marginBottom="10dp"
+                style="@style/CardElementMargin"
                 android:src="@drawable/ic_comment" />
 
             <ImageView
@@ -73,12 +55,8 @@
                 android:layout_height="38dp"
                 android:layout_below="@id/commentIcon"
                 android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="67dp"
                 android:layout_marginEnd="15dp"
-                android:layout_marginRight="15dp"
-                android:layout_marginBottom="10dp"
+                style="@style/CardElementMargin"
                 android:src="@drawable/ic_baseline_add_comment_24" />
         </RelativeLayout>
     </androidx.cardview.widget.CardView>

@@ -40,7 +40,6 @@ class MainViewModel @Inject constructor(
         )
     }
 
-
     fun getPostByIndex(index: String): String? {
         return posts.value?.getOrElse(index)
     }

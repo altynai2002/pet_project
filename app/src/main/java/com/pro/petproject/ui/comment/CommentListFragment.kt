@@ -10,7 +10,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.pro.petproject.R
-import com.pro.petproject.data.models.CommentEntity
 import com.pro.petproject.databinding.FragmentPostlistBinding
 import com.pro.petproject.ui.Event
 import com.pro.petproject.ui.Navigate
@@ -95,8 +94,5 @@ class CommentListFragment : BaseFragment<CommentListViewModel>(CommentListViewMo
 
     //  переход на detail fragment
     override fun onClick(index: Int) {
-//        viewModel.getPostByIndex(index)?.let {
-//            listener.openFragment(PostFragment.newInstance(it.id!!))
-//        }
     }
 }

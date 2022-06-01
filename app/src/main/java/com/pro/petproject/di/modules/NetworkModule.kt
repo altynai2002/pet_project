@@ -30,7 +30,6 @@ class NetworkModule {
     fun providePostApi(retrofit: Retrofit): PostApi = retrofit.create(PostApi::class.java)
 
     @Provides
-//    @com.pro.petproject.di.annotations.CommentApi
     fun provideCommentApi(retrofit: Retrofit): CommentApi = retrofit.create(CommentApi::class.java)
 
     @Provides

@@ -15,7 +15,6 @@ import dagger.hilt.android.AndroidEntryPoint
 class MainActivity: AppCompatActivity(), Navigate {
     private lateinit var binding: ActivityMainBinding
     lateinit var bottomNavView : BottomNavigationView
-//    protected lateinit var vm: viewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

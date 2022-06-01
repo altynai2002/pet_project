@@ -13,7 +13,6 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.textfield.TextInputLayout
 import com.pro.petproject.R
 import com.pro.petproject.databinding.FragmentRegistrationBinding
-import com.pro.petproject.ui.Event
 import com.pro.petproject.ui.Navigate
 import com.pro.petproject.ui.PostListFragment
 import com.pro.petproject.ui.base.BaseFragment
@@ -50,9 +49,6 @@ class RegistrationFragment: BaseFragment<RegistrationViewModel>
         val view = requireActivity().findViewById<BottomNavigationView>(R.id.bottomNav)
         view.visibility = View.GONE
 
-//        subscribeToLiveData()
-
-
         emailInputLayout = binding.editLayout2
         passwordInputLayout = binding.editLayout3
 
@@ -65,21 +61,21 @@ class RegistrationFragment: BaseFragment<RegistrationViewModel>
         }
 
         binding.apply{
-
-
-            val name = binding.name.text
-
             registrationBtn.setOnClickListener {
-                if (!isValidEmail(email.text.toString())) {
-                    Toast.makeText(activity, "Неккоректная почта", Toast.LENGTH_SHORT).show()
-                } else {
-                    emailTxt = email.text.toString()
-                    passwordTxt = password.text.toString()
-                    listener.openFragment(PostListFragment())
-                    viewModel.registerNewUser(emailTxt, passwordTxt)
-                    Log.e("TAG", "set email = $emailTxt, editTxt = $email password = $password")
-                }
+                checkInput()
             }
+        }
+    }
+
+    private fun FragmentRegistrationBinding.checkInput() {
+        if (!isValidEmail(email.text.toString())) {
+            Toast.makeText(activity, "Неккоректная почта", Toast.LENGTH_SHORT).show()
+        } else {
+            emailTxt = email.text.toString()
+            passwordTxt = password.text.toString()
+            listener.openFragment(PostListFragment())
+            viewModel.registerNewUser(emailTxt, passwordTxt)
+            Log.e("TAG", "set email = $emailTxt, editTxt = $email password = $password")
         }
     }
 

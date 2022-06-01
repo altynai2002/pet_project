@@ -29,6 +29,11 @@
     <string name="add_comment_txt">Добавить комментарий</string>
     <string name="add_txt">Добавить</string>
     <string name="comment">Комментарий</string>
+    <string name="home">Home</string>
+    <string name="main">Главная</string>
+    <string name="add">Добавить</string>
+    <string name="profile">Профиль</string>
+    <string name="text">Text</string>
 
     <string-array name="gender">
         <item>Male</item>

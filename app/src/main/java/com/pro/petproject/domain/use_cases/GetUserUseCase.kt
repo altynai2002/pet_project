@@ -1,7 +1,6 @@
 package com.pro.petproject.domain.use_cases
 
 import android.util.Log
-import com.pro.petproject.data.models.UserDto
 import com.pro.petproject.data.models.UserEntity
 import com.pro.petproject.data.repo.UserRepo
 import com.pro.petproject.extensions.toUserEntity
@@ -23,8 +22,6 @@ class GetUserUseCase @Inject constructor(
             }
             .map {
                 Log.d("List2", it.toString())
-//                println(it)
-//                userRepo.saveUsersToDb(it.map { it.toUserEntity() })
                 it.toUserEntity()
             }
             .observeOn(AndroidSchedulers.mainThread())

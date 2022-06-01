@@ -84,31 +84,6 @@ class LoginFragment : BaseFragment<LoginViewModel>
         return !TextUtils.isEmpty(email) && Patterns.EMAIL_ADDRESS.matcher(email).matches()
     }
 
-//    private val loginTextWatcher = object : TextWatcher {
-//        override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
-//
-//        override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-//            val emailText = binding.email.text.toString().trim()
-//            val passwordText = binding.password.text.toString().trim()
-//            binding.btnLogin.isEnabled = emailText.isNotEmpty() && passwordText.isNotEmpty()
-//        }
-//
-//        override fun afterTextChanged(p0: Editable?) {
-////            val emailText = binding.email.text.toString().trim()
-////            val passwordText = binding.password.text.toString().trim()
-//            binding.btnLogin.isEnabled = true
-//        }
-//    }
-
-
-    //    то же самое что мы делали в mainactivity
-//    companion object{
-//        fun newInstance(id: Long): EpisodeFragment {
-//            val args = Bundle().apply { putLong(Long::class.java.canonicalName, id) }
-//            return EpisodeFragment().apply { arguments = args }
-//        }
-//    }
-
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null

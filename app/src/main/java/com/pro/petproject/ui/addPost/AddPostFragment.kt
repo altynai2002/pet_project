@@ -50,11 +50,4 @@ class AddPostFragment: BaseFragment<AddPostViewModel>(AddPostViewModel::class.ja
         _binding = null
         viewModel.clearEvents()
     }
-
-
-//    override fun onClick(index: Int) {
-//        viewModel.getPostByIndex(index)?.let {
-//            listener.openFragment(PostFragment.newInstance(it.id!!))
-//        }
-//    }
 }

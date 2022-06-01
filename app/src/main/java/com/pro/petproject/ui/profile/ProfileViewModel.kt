@@ -13,9 +13,6 @@ class ProfileViewModel @Inject constructor
     private val getUserUseCase: GetUserUseCase
 ): BaseViewModel() {
 
-//    private val _user =  MutableLiveData<List<User>>()
-//    val user: LiveData<List<User>>
-//        get() = _user
 
     private var id: String = "811CD10F-49FE-4F90-9439-1EEE1F5A4F9F"
     fun getUser(){
@@ -24,7 +21,6 @@ class ProfileViewModel @Inject constructor
                 .subscribe({
                     _event.value = Event.FetchedUser(it)
                 },{
-//                    _event.value = BaseEvent.ShowToast(it.message ?: "")
                 })
         )
     }

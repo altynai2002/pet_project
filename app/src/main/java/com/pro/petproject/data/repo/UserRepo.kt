@@ -21,9 +21,5 @@ class UserRepo @Inject constructor(
         return userApi.getUserById(ownerId)
     }
 
-    fun clearTable() {
-        userDao.clearTable()
-    }
-
     fun saveUsersToDb(users: List<UserEntity>) = userDao.insertUsers(users)
 }

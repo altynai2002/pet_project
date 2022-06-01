@@ -4,7 +4,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.pro.petproject.R
-import com.pro.petproject.data.models.PostEntity
 import com.pro.petproject.ui.Event
 import dagger.hilt.android.lifecycle.HiltViewModel
 import io.reactivex.disposables.CompositeDisposable
@@ -36,7 +35,6 @@ open class BaseViewModel @Inject constructor(): ViewModel() {
             else -> Event.ShowToast(R.string.app_name)
         }
     }
-
 
     fun clearEvents() {
         _event.value = null

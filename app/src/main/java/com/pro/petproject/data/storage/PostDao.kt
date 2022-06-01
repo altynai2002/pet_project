@@ -10,8 +10,6 @@ import io.reactivex.Completable
 
 @Dao
 interface PostDao {
-//    @Insert(onConflict = OnConflictStrategy.REPLACE)
-//    fun insertPosts(post: List<PostEntity>): Completable
 
     @Query("SELECT * FROM PostEntity")
     fun getAll(): LiveData<List<PostEntity>>
